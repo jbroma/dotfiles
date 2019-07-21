@@ -1,2 +1,6 @@
 !! URxvt Appearance
-URxvt.font: xft:Inconsolata:size=11:antialias=true
+URxvt*font: xft:Source Code Pro:size=11:antialias=true:hinting:1
+URxvt*scrollBar:  false
+URxvt*internalBorder: 30
+
+
