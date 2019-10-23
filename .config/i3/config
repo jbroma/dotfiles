@@ -171,6 +171,10 @@ bindsym $mod+r mode "resize"
 # Title bars off (for gaps)
 for_window [class=".*"] border pixel 0
 
+# Screenshots
+bindsym Print exec import -window root /dev/stdout | tee ~/Pics/Screenshots/$(date +"%d-%m-%y_%H:%M:%S:%N) | xclip -selection clipboard -t image/png -i 
+bindsym Print exec import /dev/stdout | tee ~/Pics/Screenshots/$(date +"%d-%m-%y_%H:%M:%S:%N) | xclip -selection clipboard -t image/png -i 
+
 # Gaps
 gaps inner 10
 smart_borders on
