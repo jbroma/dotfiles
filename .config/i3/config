@@ -207,7 +207,7 @@ hide_edge_borders smart
 
 # Screenshots
 bindsym Print exec import -window root png:- | tee ~/Pics/Screenshots/$(date +"%d-%m-%y_%H:%M:%S:%N") | xclip -selection clipboard -t image/png -i 
-bindsym Shift+Print exec import ~/Pics/Screenshots/$(date +"%d-%m-%y_%H:%M:%S:%N").png | xclip -selection clipboard -t image/png -i 
+bindsym --release Shift+Print exec scrot ~/Pics/Screenshots/$(date +"%d-%m-%y_%H:%M:%S:%N").png -s -e 'xclip -selection c -t image/png < $f'
 
 # Gaps
 #gaps inner 5

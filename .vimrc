@@ -28,10 +28,14 @@ set nu
 set background=dark
 set encoding=utf-8
 
+"Mouse support
+set mouse=a
+
 "Syntax highlighting
 syntax on
 "Custom highlight groups
-highlight BadWhitespace ctermbg=red guibg=darkred
+highlight BadWhitespace ctermbg=red 
+highlight ColorColumn ctermbg=0
 
 "Defines how splitting window will work
 set splitbelow
@@ -58,9 +62,24 @@ au BufNewFile,BufRead *.py
 
 "YAML indentation
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+"Set column length to 100 for tex files
+au BufNewFile,BufRead *.tex 
+	\ setlocal colorcolumn=80 |
+	\ setlocal tabstop=4 |
+	\ setlocal softtabstop=4 |
+	\ setlocal shiftwidth=4 |
+	\ setlocal textwidth=79 |
+	\ setlocal formatoptions+=t |
+	\ setlocal formatoptions-=l |
+	\ setlocal spell spelllang=pl
 "Map <leader> to Space
 let mapleader="\<Space>"
 
+"Map F12 to formatting the whole file
+nnoremap <F12> :g/./ normal gqq<CR>
+
+"***Plugin specific config***
 "YouCompleteMe Config
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_python_binary_path = '/usr/bin/python3'
@@ -70,11 +89,16 @@ let g:use_ultisnips_completer=1
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_complete_in_comments=1
 let g:ycm_complete_in_strings=1
-
+let g:ycm_filetype_blacklist= {
+	\ 'tex': 1,
+	\ }
 "Vimtex Config
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
+let g:vimtex_compiler_latexmk = {
+   	\ 'build_dir' : 'tex_build',
+    	\ }
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
@@ -82,8 +106,8 @@ let g:tex_conceal='abdmg'
 let g:polyglot_disabled = ['latex']
 
 "Nnn Config
-let g:nnn#layout={ 'left': '~20%' }
-let g:nnn#action={
+let g:nnn#layout= { 'left': '~20%' }
+let g:nnn#action= {
 	\ '<c-t>': 'tab-split',
 	\ '<c-x>': 'split',
 	\ '<c-v>': 'vsplit' }
@@ -118,3 +142,5 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+"***Experimental***

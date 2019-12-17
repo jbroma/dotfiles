@@ -32,7 +32,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 alias ls="ls --color=auto"
 alias mcs="ssh u1671-xxfh6bmqfppq@thechickensoup.eu -p 18765"
-
+alias suspend="systemctl suspend"
 # Rehash hook for pacman
 zshcache_time="$(date +%s%N)"
 autoload -Uz add-zsh-hook
