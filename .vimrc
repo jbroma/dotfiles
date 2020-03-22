@@ -41,6 +41,8 @@ highlight ColorColumn ctermbg=0
 set splitbelow
 set splitright
 
+"Backspace fix
+set backspace=indent,eol,start
 "Unified clipboard
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-c> "+y
